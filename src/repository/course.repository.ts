@@ -1,4 +1,3 @@
-import { log } from 'console';
 import pool from '../bd';
 import { iCourse } from '../interfaces/index'
 
