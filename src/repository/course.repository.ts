@@ -9,6 +9,17 @@ async function getUsersDB(): Promise<iCourse[]> {
     return data;
 }
 
+async function getUserByIdDB(id: number): Promise<iCourse[]> {
+    const client = await pool.connect();
+
+    const sql = `SELECT * FROM courses
+    WHERE id = $1`
+
+    const data = (await client.query(sql, [id])).rows
+
+    return data;
+}
+
 async function createCourseDB(course: string): Promise<iCourse[]> {
     const client = await pool.connect();
 
@@ -17,17 +28,6 @@ async function createCourseDB(course: string): Promise<iCourse[]> {
     RETURNING *`
 
     const data = (await client.query(sql, [course])).rows
-
-    return data;
-}
-
-async function getUserByIdDB(id: number): Promise<iCourse[]> {
-    const client = await pool.connect();
-
-    const sql = `SELECT * FROM courses
-    WHERE id = $1`
-
-    const data = (await client.query(sql, [id])).rows
 
     return data;
 }
