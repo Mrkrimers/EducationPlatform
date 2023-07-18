@@ -20,7 +20,6 @@ async function getUserByIdDB(id: number): Promise<iUser[]> {
     return data;
 }
 
-
 async function updateUserDB(id: number, name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
     const client = await pool.connect();
     try {

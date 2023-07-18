@@ -1,6 +1,5 @@
 import { getUsers, getUserById, createCourse, putUserUpdate, deleteUserById } from '../../../service/course.service';
 import * as repa from '../../../repository/course.repository';
-import exp from 'constants';
 
 describe(`getUsers:`, () => {
     test(``, async () => {
@@ -19,7 +18,7 @@ describe(`getUsers:`, () => {
         mock.mockResolvedValue([]);
 
         try {
-            const res = await getUsers();
+            await getUsers();
 
         } catch (err: any) {
             expect(mock).toBeCalled();
@@ -50,7 +49,7 @@ describe(`getUserById:`, () => {
         mock.mockResolvedValue([]);
 
         try {
-            const res = await getUserById(1);
+            await getUserById(1);
 
         } catch (err: any) {
             expect(mock).toHaveBeenCalled();
