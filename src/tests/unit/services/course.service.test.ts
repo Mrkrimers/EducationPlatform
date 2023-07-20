@@ -1,9 +1,9 @@
 import { getUsers, getUserById, createCourse, putUserUpdate, deleteUserById } from '../../../service/course.service';
-import * as repa from '../../../repository/course.repository';
+import * as repository from '../../../repository/course.repository';
 
 describe(`getUsers:`, () => {
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'getUsersDB');
+        const mock = jest.spyOn(repository, 'getUsersDB');
         mock.mockResolvedValue([{ id: 1, cousre: 'test' }, { id: 2, cousre: 'test2' }]);
 
         const res = await getUsers();
@@ -14,7 +14,7 @@ describe(`getUsers:`, () => {
     })
 
     test(`find error`, async () => {
-        const mock = jest.spyOn(repa, 'getUsersDB');
+        const mock = jest.spyOn(repository, 'getUsersDB');
         mock.mockResolvedValue([]);
 
         try {
@@ -29,7 +29,7 @@ describe(`getUsers:`, () => {
 
 describe(`getUserById:`, () => {
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'getUserByIdDB');
+        const mock = jest.spyOn(repository, 'getUserByIdDB');
         mock.mockResolvedValue([{ id: 1, cousre: `test` }]);
 
         const res = await getUserById(1);
@@ -45,7 +45,7 @@ describe(`getUserById:`, () => {
     })
 
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'getUserByIdDB');
+        const mock = jest.spyOn(repository, 'getUserByIdDB');
         mock.mockResolvedValue([]);
 
         try {
@@ -63,7 +63,7 @@ describe(`getUserById:`, () => {
 
 describe(`createCourse:`, () => {
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'createCourseDB');
+        const mock = jest.spyOn(repository, 'createCourseDB');
         mock.mockResolvedValue([{ id: 1, cousre: `test` }]);
 
         const res = await createCourse(`test`);
@@ -79,7 +79,7 @@ describe(`createCourse:`, () => {
     })
 
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'createCourseDB');
+        const mock = jest.spyOn(repository, 'createCourseDB');
         mock.mockResolvedValue([]);
 
         try {
@@ -96,7 +96,7 @@ describe(`createCourse:`, () => {
 
 describe(`putUserUpdateDB`, () => {
     test(`should responce new 'test'`, async () => {
-        const mock = jest.spyOn(repa, 'putUserUpdateDB');
+        const mock = jest.spyOn(repository, 'putUserUpdateDB');
         mock.mockResolvedValue([{ id: 1, cousre: `test3` }]);
 
         const data = [{ id: 1, cousre: `test3` }];
@@ -114,7 +114,7 @@ describe(`putUserUpdateDB`, () => {
     })
 
     test(`catched Error`, async () => {
-        const mock = jest.spyOn(repa, 'putUserUpdateDB');
+        const mock = jest.spyOn(repository, 'putUserUpdateDB');
         mock.mockResolvedValue([]);
 
         try {
@@ -130,7 +130,7 @@ describe(`putUserUpdateDB`, () => {
 
 describe(`deleteUserById:`, () => {
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'deleteUserByIdDB');
+        const mock = jest.spyOn(repository, 'deleteUserByIdDB');
         mock.mockResolvedValue([{ id: 5, cousre: `test5` }]);
 
         const res = await deleteUserById(5);
@@ -152,7 +152,7 @@ describe(`deleteUserById:`, () => {
     })
 
     test(``, async () => {
-        const mock = jest.spyOn(repa, 'deleteUserByIdDB');
+        const mock = jest.spyOn(repository, 'deleteUserByIdDB');
         mock.mockResolvedValue([]);
 
         try {

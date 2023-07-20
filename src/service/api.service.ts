@@ -8,7 +8,7 @@ async function createUser(name: string, surname: string, email: string, pwd: str
     const foundEmail = await getEmailDB(email);
     if (foundEmail.length) throw new Error(`This Email exist`)
 
-    const hashPwd = await bcrypt.hash(pwd, salt)
+    const hashPwd: string = await bcrypt.hash(pwd, salt)
 
     const data = await createUserDB(name, surname, email, hashPwd);
     if (!data.length) throw new Error(`can't creaded`);
@@ -20,7 +20,7 @@ async function authorizationUser(email: string, pwd: string): Promise<iUser[]> {
     const foundEmail = await getEmailDB(email);
     if (!foundEmail.length) throw new Error(`Email does'n exist`)
 
-    const bool = await bcrypt.compare(pwd, foundEmail[0].pwd);
+    const bool: boolean = await bcrypt.compare(pwd, foundEmail[0].pwd);
     if (!bool) throw new Error(`PWD do not match`);
 
     return foundEmail;

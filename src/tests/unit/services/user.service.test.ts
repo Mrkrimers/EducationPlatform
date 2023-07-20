@@ -1,7 +1,5 @@
 import { getAllUser, getUserById, updateUser, deleteUser } from '../../../service/user.service';
 import * as repository from '../../../repository/user.repository';
-import exp from 'constants';
-
 
 describe(`getAllUser:`, () => {
     test(``, async () => {
