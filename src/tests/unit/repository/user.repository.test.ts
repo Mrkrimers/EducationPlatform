@@ -1,5 +1,6 @@
 import { iUser } from '../../../interfaces'
 import { getAllUserDB, getUserByIdDB, updateUserDB, deleteUserDB } from '../../../repository/user.repository'
+import pool from '../../../bd'
 
 const mQuery = {
     query: jest.fn()
@@ -37,5 +38,32 @@ describe(`getAllUserDB function:`, () => {
         expect(res).toEqual(arr);
         expect(res).toHaveLength(2);
         expect(res).toContainEqual(arr[1]);
+    })
+})
+
+describe(`getUserByIdDB function:`, () => {
+    test(``, async () => {
+        const arr = [{
+            id: 1,
+            name: 'test',
+            surname: 'Stest',
+            email: 'test@gmail.com',
+            pwd: 'test'
+        }]
+
+        const mockQuery = {
+            query: jest.fn()
+        }
+        mockQuery.query.mockResolvedValue({ rows: arr })
+
+        const mainMock = jest.spyOn(pool, 'connect');
+        mainMock.mockResolvedValue(mockQuery);
+
+        const res = await getUserByIdDB(1);
+
+        expect(mainMock).toHaveBeenCalled();
+        // console.log(res);
+
+        expect(res).toEqual(arr);
     })
 })
