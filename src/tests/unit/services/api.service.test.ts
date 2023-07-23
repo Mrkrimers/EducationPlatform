@@ -3,7 +3,7 @@ import * as repository from '../../../repository/api.repository';
 import bcrypt from 'bcrypt'
 
 describe(`createUser:`, () => {
-    test(``, async () => {
+    test(`success`, async () => {
         const mockUserByEmail = jest.spyOn(repository, 'getEmailDB');
         const mockUserCreate = jest.spyOn(repository, 'createUserDB');
         const mockHashCompare = jest.spyOn(bcrypt, 'hash');
@@ -31,6 +31,46 @@ describe(`createUser:`, () => {
             email: 'test@test.ru',
             pwd: 'ngnwqlkg;qwlmglkqw$%@!%4271421'
         }])
+    })
+
+    test(`errorFoundEmail:`, async () => {
+        const mock = jest.spyOn(repository, 'getEmailDB');
+        mock.mockResolvedValue([{
+            id: 1,
+            name: `test`,
+            surname: `Stest`,
+            email: `test@test.com`,
+            pwd: `testtest`
+        }])
+        try {
+            await createUser(`test`, `Stest`, `test@test.com`, `testtest`);
+        } catch (err: any) {
+            expect(mock).toHaveBeenCalled();
+            expect(err.message).toBe(`This Email exist`)
+        }
+    })
+
+    test(`errorData:`, async () => {
+        const mockFound = jest.spyOn(repository, 'getEmailDB');
+        const mockHash = jest.spyOn(bcrypt, 'hash');
+        const mockData = jest.spyOn(repository, 'createUserDB');
+
+        mockFound.mockResolvedValue([]);
+        mockHash.mockResolvedValue('qwewqetqwas');
+        mockData.mockResolvedValue([]);
+
+        try {
+            await createUser(`test`, `Stest`, `test@test.com`, `testtest`);
+            expect(mockFound).toHaveBeenCalled();
+            expect(mockFound).toHaveBeenCalledWith(`testtest`);
+
+            expect(mockHash).toHaveBeenCalled();
+            expect(mockHash).toHaveBeenCalledWith('testtest', 10);
+
+        } catch (err: any) {
+            expect(mockData).toHaveBeenCalled();
+            expect(err.message).toBe(`can't creaded`)
+        }
     })
 })
 

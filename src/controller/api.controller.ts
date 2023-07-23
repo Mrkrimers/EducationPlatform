@@ -1,6 +1,6 @@
 import express, { Request, Responce } from 'express';
 import { createUser, authorizationUser } from '../service/api.service';
-
+import buildResponse from '../helper/buildResponse'
 
 const route = express.Router();
 
@@ -9,9 +9,9 @@ route.post(`/register`, async (req: Request, res: Responce): Promise<void> => {
         const { name, surname, email, pwd } = req.body
         const data = await createUser(name, surname, email, pwd);
 
-        res.status(200).send(data);
+        buildResponse(res, 200, data);
     } catch (err: any) {
-        res.status(404).send(err.message)
+        buildResponse(res, 404, err.message);
     }
 })
 

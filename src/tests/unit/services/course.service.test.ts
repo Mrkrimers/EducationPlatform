@@ -1,27 +1,35 @@
 import { getUsers, getUserById, createCourse, putUserUpdate, deleteUserById } from '../../../service/course.service';
 import * as repository from '../../../repository/course.repository';
+import { iCourse } from '../../../interfaces';
 
 describe(`getUsers:`, () => {
-    test(``, async () => {
-        const mock = jest.spyOn(repository, 'getUsersDB');
-        mock.mockResolvedValue([{ id: 1, cousre: 'test' }, { id: 2, cousre: 'test2' }]);
+    test(`seccess`, async () => {
+        const arr: iCourse[] = [{
+            id: 1,
+            cousre: `test`
+        }, {
+            id: 2,
+            cousre: `test2`
+        }]
+        const mock = jest.spyOn(repository, 'getUsersDB').mockResolvedValue(arr);
 
         const res = await getUsers();
-        expect(mock).toBeCalled();
+        expect(mock).toHaveBeenCalled();
 
-        expect(res.length).toBeGreaterThan(0);
-        expect(res).toEqual([{ id: 1, cousre: 'test' }, { id: 2, cousre: 'test2' }])
+        expect(res.length).toBeGreaterThanOrEqual(2);
+        expect(res.length).toBeLessThanOrEqual(2);
+        expect(res).toEqual(arr);
+        expect(res).toContainEqual(arr[1]);
+        expect(res).toHaveLength(2);
     })
 
-    test(`find error`, async () => {
-        const mock = jest.spyOn(repository, 'getUsersDB');
-        mock.mockResolvedValue([]);
+    test(`error`, async () => {
+        const mock = jest.spyOn(repository, 'getUsersDB').mockResolvedValue([])
 
         try {
             await getUsers();
-
         } catch (err: any) {
-            expect(mock).toBeCalled();
+            expect(mock).toHaveBeenCalled();
             expect(err.message).toBe(`ERROR data`)
         }
     })
