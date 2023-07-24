@@ -1,5 +1,5 @@
 import express, { Request, Responce } from 'express';
-import { createUser, authorizationUser } from '../service/api.service';
+import { createUser, authorizationUser, deleteById } from '../service/api.service';
 import buildResponse from '../helper/buildResponse'
 
 const route = express.Router();
@@ -26,5 +26,15 @@ route.post(`/auth`, async (req: Request, res: Responce): Promise<void> => {
     }
 })
 
+route.delete(`/:id`, async (req: Request, res: Responce): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const data = await deleteById(id);
+
+        res.status(200).send(data);
+    } catch (err: any) {
+        res.status(404).send(err.message)
+    }
+})
 
 export default route;
