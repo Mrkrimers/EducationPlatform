@@ -20,9 +20,9 @@ route.post(`/auth`, async (req: Request, res: Responce): Promise<void> => {
         const { email, pwd } = req.body;
         const data = await authorizationUser(email, pwd)
 
-        res.status(200).send(data)
+        buildResponse(res, 200, data);
     } catch (err: any) {
-        res.status(404).send(err.message)
+        buildResponse(res, 404, err.message);
     }
 })
 
@@ -31,9 +31,9 @@ route.delete(`/:id`, async (req: Request, res: Responce): Promise<void> => {
         const { id } = req.params;
         const data = await deleteById(id);
 
-        res.status(200).send(data);
+        buildResponse(res, 200, data);
     } catch (err: any) {
-        res.status(404).send(err.message)
+        buildResponse(res, 404, err.message);
     }
 })
 
