@@ -1,0 +1,142 @@
+.preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 7% auto;
+    width: 1220px;
+}
+
+.preview .previewInfo {
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.preview .previewInfo .discription {
+    font: 700 16px Montserrat;
+}
+
+.preview .previewInfo h1 {
+    font: 400 56px Dela Gothic One;
+}
+
+.preview .previewInfo .info {
+    font: 600 18px Montserrat;
+}
+
+.preview .previewInfo .btnInfo {
+    width: 150px;
+    padding: 10px 0;
+    text-align: center;
+    background: #C3DCE3;
+    border-radius: 30px;
+    font: 700 16px Montserrat;
+}
+
+.preview .previewGuy {
+    background-image: url(./assests/previewGuy.png);
+    width: 710px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    left: 12%;
+}
+
+.preview .lightWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.preview .lightning {
+    background-image: url(./assests/Frame\ 35271.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 35px;
+}
+
+.preview .statistics {
+    width: max-content;
+}
+
+.preview .lightWrapper p {
+    font: 400 40px Dela Gothic One;
+}
+
+.preview .lightWrapper span {
+    color: #2B788B;
+    font: 400 40px Dela Gothic One;
+}
+
+.preview .student {
+    font: 600 16px Montserrat;
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+    background-color: #fff;
+}
+
+.learnLanguage {
+    width: 1220px;
+    margin: auto;
+    padding: 7% 0;
+    display: flex;
+}
+
+.learnLanguage .imgGirl {
+    background-image: url(./assests/image\ 8.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 580px;
+    height: 445px;
+}
+
+.info h1 {
+    color: #000;
+    font: 400 48px Dela Gothic One;
+}
+
+.info p {
+    color: #757575;
+    font: 600 18px Montserrat;
+}
+
+.info .format {
+    display: flex;
+    gap: 10px;
+}
+
+.info .format .imgSprint {
+    background-image: url(./assests/Group\ 11.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 256px;
+    height: 210px;
+}
+
+.info .format .imgTask {
+    background-image: url(./assests/Group\ 10.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 256px;
+    height: 210px;
+}
+
+.knowledge {
+    width: 1220px;
+    margin: auto;
+    padding: 7% 0;
+    display: flex;
+}
+
+.knowledge .imgGirl2 {
+    background-image: url(./assests/image\ 2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 580px;
+    height: 473px;
+}

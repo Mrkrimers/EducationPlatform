@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1220px;
+    margin:auto;
+}
+
+.wrapper .btns {
+    display: flex;
+    align-items: center;
+    gap: 25px
+}
+
+.wrapper h1 {
+    font: 400 16px Dela Gothic One;
+    color: #000;
+}
+
+.wrapper login {
+    font: 400 16px Montserrat;
+    color: #000;
+}
+
+.wrapper .signUp {
+    font: 400 16px Montserrat;
+    color: #fff;
+    border-radius: 14px;
+    background: #2B788B;
+    padding: 13px 0;
+    width: 109px;
+    text-align: center;
+}
+
+.wrapper .signUp:hover {
+    transition: 0.5s;
+    opacity: 50%;
+}
