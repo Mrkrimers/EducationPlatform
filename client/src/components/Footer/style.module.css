@@ -1,0 +1,61 @@
+.greyLine {
+    height: 1.5px;
+    background-color: #bebdbd;
+    margin: 20px 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.navigation .navWeb,
+.navigation .navName {
+    display: flex;
+    gap: 30px;
+    color: #757575;
+    font: 600 14px Montserrat;
+    line-height: 100%;
+}
+
+.logoHschool {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoHschool .imgLittle {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logoHschool .imgLittle .imgCat {
+    background-image: url(./assets/Frame\ 30.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 24px;
+}
+
+.logoHschool .imgLittle .imgGT {
+    background-image: url(./assets/Frame\ 33.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 24px;
+}
+
+.logoHschool .imgLittle .imgYoutube {
+    background-image: url(./assets/Frame\ 31.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 24px;
+}
+
+.logoHschool p {
+    color: #757575;
+    font: 600 12px Montserrat;
+    line-height: 100%;
+}

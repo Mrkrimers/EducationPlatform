@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 1220px;
-    margin:auto;
+    margin: auto;
 }
 
 .wrapper .btns {
@@ -17,9 +17,15 @@
     color: #000;
 }
 
-.wrapper login {
-    font: 400 16px Montserrat;
+.wrapper .login {
+    font: 700 16px Montserrat;
     color: #000;
+    letter-spacing: -0.662px;
+}
+
+.wrapper .login:hover {
+    transition: 10s;
+    text-decoration: underline;
 }
 
 .wrapper .signUp {
@@ -30,6 +36,7 @@
     padding: 13px 0;
     width: 109px;
     text-align: center;
+    line-height: 100%;
 }
 
 .wrapper .signUp:hover {

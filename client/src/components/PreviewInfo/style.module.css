@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 7% auto;
+    margin: 7% auto 0;
     width: 1220px;
 }
 
@@ -95,41 +95,48 @@
     height: 445px;
 }
 
+.info {
+    width: 43%;
+}
+
 .info h1 {
     color: #000;
     font: 400 48px Dela Gothic One;
+    line-height: 100%;
 }
 
 .info p {
     color: #757575;
     font: 600 18px Montserrat;
+    line-height: 100%;
+    margin: 30px 0;
 }
 
 .info .format {
     display: flex;
-    gap: 10px;
+    gap: 25px;
 }
 
 .info .format .imgSprint {
     background-image: url(./assests/Group\ 11.png);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 256px;
-    height: 210px;
+    width: 131px;
+    height: 145px;
 }
 
 .info .format .imgTask {
     background-image: url(./assests/Group\ 10.png);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 256px;
-    height: 210px;
+    width: 172px;
+    height: 145px;
 }
 
 .knowledge {
     width: 1220px;
     margin: auto;
-    padding: 7% 0;
+    padding: 7% 0 0;
     display: flex;
 }
 
@@ -148,12 +155,66 @@
     color: #2B788B;
     font: 700 16px Montserrat;
     width: 148px;
+    text-align: center;
 }
 
 .knowledge h1 {
     font: 400 48px Dela Gothic One;
+    letter-spacing: -1.92px;
+    line-height: 100%;
 }
 
 .knowledge p {
     font: 600 18px Montserrat;
+    letter-spacing: -0.72px;
+    line-height: 140%;
+}
+
+.watch {
+    display: flex;
+    justify-content: space-between;
+    width: 1220px;
+    margin: auto;
+    padding: 7% 0;
+}
+
+.watch .imgTogether {
+    background-image: url(./assests/image\ 1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 680px;
+    height: 410px;
+}
+
+.watch .lastInfo {
+    padding: 40px 0;
+    width: 500px;
+}
+
+.watch .lastInfo h1 {
+    color: #000;
+    font: 400 48px Dela Gothic One;
+    line-height: 100%;
+    letter-spacing: -1.92px;
+}
+
+.watch .lastInfo p {
+    color: #757575;
+    font: 600 18px Montserrat;
+    line-height: 140%;
+    letter-spacing: -0.72px;
+    margin: 30px 0;
+    width: 74%;
+}
+
+.watch .lastInfo .btnStatistics {
+    font: 700 16px Montserrat;
+    line-height: 100%;
+    letter-spacing: -0.64px;
+    padding: 14px 22px;
+    text-align: center;
+    border-radius: 100px;
+    color: #2B788B;
+    background-color: #C3DCE3;
+    width: 143px;
 }
