@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 7% auto 0;
+    margin: 3% auto 0;
     width: 1220px;
 }
 
@@ -15,14 +15,24 @@
 
 .preview .previewInfo .discription {
     font: 700 16px Montserrat;
+    color: #2B788B;
+    line-height: 100%;
+    letter-spacing: 2.24px;
+    text-transform: uppercase;
 }
 
 .preview .previewInfo h1 {
     font: 400 56px Dela Gothic One;
+    color: #000;
+    line-height: 120%;
+    letter-spacing: -2.24px;
 }
 
 .preview .previewInfo .info {
     font: 600 18px Montserrat;
+    color: #757575;
+    line-height: 140%;
+    letter-spacing: -0.72px;
 }
 
 .preview .previewInfo .btnInfo {
@@ -32,16 +42,19 @@
     background: #C3DCE3;
     border-radius: 30px;
     font: 700 16px Montserrat;
+    color: #2B788B;
+    line-height: 100%;
+    letter-spacing: -0.64px;
 }
 
 .preview .previewGuy {
     background-image: url(./assests/previewGuy.png);
-    width: 710px;
-    height: 500px;
+    width: 933px;
+    height: 600px;
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    left: 12%;
+    left: 15%;
 }
 
 .preview .lightWrapper {
@@ -75,6 +88,7 @@
     text-align: center;
 }
 
+/* second sector */
 .wrapper {
     width: 100%;
     background-color: #fff;

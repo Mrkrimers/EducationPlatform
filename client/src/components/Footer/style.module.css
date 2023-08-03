@@ -1,3 +1,8 @@
+.footer {
+    width: 1220px;
+    margin: auto;
+}
+
 .greyLine {
     height: 1.5px;
     background-color: #bebdbd;
