@@ -1,8 +1,16 @@
 import style from './style.module.css'
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import InputReg from '../../components/Input/Input';
+import { Button } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 
 function RegistrationPage() {
+    const array = [{ text: "name", type: "text" },
+    { text: "surname", type: "text" },
+    { text: "email", type: "text" },
+    { text: "password", type: "password" }]
+
     return (
         <>
             <Header />
@@ -11,20 +19,11 @@ function RegistrationPage() {
                 <div className={style.info}>
                     <h1>Sign Up</h1>
 
-                    <div >
-                        <input placeholder='Login' />
-                    </div>
-                    <div>
-                        <input placeholder='Password' />
-                    </div>
-                    <div>
-                        <input placeholder='Password' />
-                    </div>
-                    <div>
-                        <input placeholder='Password' />
-                    </div>
+                    <InputReg data={array} />
 
-                    <div className={style.btnLogin}>Sign Up</div>
+                    <Button className={style.btnLogin} variant="contained" endIcon={<SendIcon />}>
+                        Sign Up
+                    </Button>
                 </div>
 
                 <div className={style.imgLogo}></div>

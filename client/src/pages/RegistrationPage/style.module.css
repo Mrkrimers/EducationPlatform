@@ -20,18 +20,8 @@
 }
 
 .wrapper .info input {
-    border-radius: 2px;
-    border: 1px solid #CED4DA;
-    color: black;
-    font: 400 20px Open Sans;
-
-    padding: 15px 20px;
     width: 500px;
     outline: none;
-}
-
-.wrapper .info input::placeholder {
-    color: #ADB5BD;
 }
 
 .wrapper .info .btnLogin {
@@ -45,7 +35,7 @@
     background: #2B788B;
 
     padding: 14px 22px;
-    width: 110px;
+    width: 140px;
 }
 
 .wrapper .imgLogo {

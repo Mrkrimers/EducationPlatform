@@ -6,6 +6,11 @@
     font-family: Montserrat;
 }
 
+html{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     margin: 0 auto;
     background-color: #F6F5F4;

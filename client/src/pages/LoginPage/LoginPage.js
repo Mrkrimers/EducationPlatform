@@ -1,8 +1,12 @@
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
+import Input from '../../components/Input/Input'
 import style from './style.module.css'
+import { Button } from '@mui/material/';
 
 function LoginPage() {
+    const array = [{ text: "email", type: "text" }, { text: "password", type: "password" }]
+
     return (
         <>
             <Header />
@@ -11,14 +15,9 @@ function LoginPage() {
                 <div className={style.info}>
                     <h1>Login</h1>
 
-                    <div >
-                        <input placeholder='Login' />
-                    </div>
-                    <div>
-                        <input placeholder='Password' />
-                    </div>
+                    <Input data={array} />
 
-                    <div className={style.btnLogin}>Login</div>
+                    <Button className={style.btnLogin} variant="contained">Login</Button>
                 </div>
 
                 <div className={style.imgLogo}></div>
