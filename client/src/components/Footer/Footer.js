@@ -5,6 +5,7 @@ function Footer() {
     return (
         <div className={style.footer}>
             <div className={style.navigation}>
+                
                 <div className={style.navWeb}>
                     <Options data={['Home', 'Textbook', 'Statistics', 'Sprint']} />
                 </div>
@@ -12,6 +13,7 @@ function Footer() {
                 <div className={style.navName}>
                     <Options data={['Alex', 'Gabriel', 'Marcus']} />
                 </div>
+
             </div>
 
             <div className={style.greyLine}></div>
