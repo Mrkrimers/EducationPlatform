@@ -5,18 +5,19 @@ import Input from '../../components/Input/Input'
 import style from './style.module.css'
 import { Button } from '@mui/material/';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
-
+    const navigate = useNavigate();
     const [inp, setInp] = useState({
         email: '',
         pwd: ''
     })
 
     async function getLog() {
-        debugger
         const response = await axios.post('http://localhost:3001/api/auth', inp)
         console.log(response);
+        navigate('/students')
     }
 
     const array = [{ text: "email", type: "text" },
@@ -24,7 +25,7 @@ function LoginPage() {
 
     return (
         <>
-            <Header />
+            <Header isAuth={false} />
 
             <div className={style.wrapper}>
                 <div className={style.info}>

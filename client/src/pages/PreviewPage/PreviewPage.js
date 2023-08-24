@@ -5,7 +5,7 @@ import PreviwInfo from "../../components/PreviewInfo/PreviewInfo";
 function PreviewPage() {
     return (
         <div>
-            <Header />
+            <Header isAuth={false} />
             <PreviwInfo />
             <Footer />
         </div>

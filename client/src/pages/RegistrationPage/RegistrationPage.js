@@ -27,7 +27,7 @@ function RegistrationPage() {
 
     return (
         <>
-            <Header />
+            <Header isAuth={false} />
 
             <div className={style.wrapper}>
                 <div className={style.info}>
