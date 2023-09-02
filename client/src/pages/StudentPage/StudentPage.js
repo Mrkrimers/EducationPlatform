@@ -1,6 +1,7 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import style from "./style.module.css"
+import Pagination from '@mui/material/Pagination';
 
 function StudentPage() {
     const arr = [{ h1: 'JavaScript', p: 'JavaScript is a practical course where students learn the basics of JavaScript. It covers variables, operators, conditionals, loops, functions, and data manipulation.' },
@@ -16,8 +17,8 @@ function StudentPage() {
                 <h1>Courses</h1>
             </div>
 
-            {arr.map((el) =>
-                <div className={style.wrapperBody}>
+            {arr.map((el, ind) =>
+                <div key={ind} className={style.wrapperBody}>
                     <div className={style.imgOne}></div>
 
                     <div>
@@ -27,6 +28,8 @@ function StudentPage() {
                     </div>
                 </div>
             )}
+
+            <Pagination count={10} variant="outlined" color="primary" />
 
             <Footer />
         </>
