@@ -16,7 +16,6 @@ function StudentPage() {
                 <h1>Courses</h1>
             </div>
 
-
             {arr.map((el) =>
                 <div className={style.wrapperBody}>
                     <div className={style.imgOne}></div>
@@ -28,11 +27,6 @@ function StudentPage() {
                     </div>
                 </div>
             )}
-
-
-
-
-
 
             <Footer />
         </>
