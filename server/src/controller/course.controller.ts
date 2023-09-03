@@ -28,8 +28,8 @@ route.get(`/:id`, async (req: Request, res: Responce): Promise<void> => {
 
 route.post(`/`, async (req: Request, res: Responce): Promise<void> => {
     try {
-        const { course } = req.body;
-        const data: iCourse[] = await createCourse(course);
+        const { course, description } = req.body;
+        const data: iCourse[] = await createCourse(course, description);
 
         buildResponse(res, 200, data);
     } catch (err: any) {
@@ -40,8 +40,8 @@ route.post(`/`, async (req: Request, res: Responce): Promise<void> => {
 route.put(`/:id`, async (req: Request, res: Responce): Promise<void> => {
     try {
         const { id } = req.params;
-        const { course } = req.body;
-        const data = await putUserUpdate(id, course);
+        const { course, description } = req.body;
+        const data = await putUserUpdate(id, course, description);
 
         buildResponse(res, 200, data);
     } catch (err: any) {

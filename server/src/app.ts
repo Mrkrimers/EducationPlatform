@@ -2,7 +2,7 @@ import express, { Request, Responce, NextFunction } from 'express'
 import course from './controller/course.controller';
 import user from './controller/user.controller';
 import api from './controller/api.controller';
-import cors from 'cors'
+import cors from 'cors';
 
 import bodyParser from 'body-parser';
 

@@ -1,12 +1,33 @@
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import style from "./style.module.css"
-import Pagination from '@mui/material/Pagination';
+import { Pagination } from '@mui/material';
+import { Link } from "react-router-dom";
+import axios from "axios"
 
 function StudentPage() {
-    const arr = [{ h1: 'JavaScript', p: 'JavaScript is a practical course where students learn the basics of JavaScript. It covers variables, operators, conditionals, loops, functions, and data manipulation.' },
-    { h1: 'TypeScript', p: `TypeScript is a course that provides an introduction to TypeScript. Students will learn about TypeScript's key features, such as type annotations, interfaces, classes, and modules` },
-    { h1: 'Python', p: `Students will learn about variables, data types, conditionals, loops, functions, and file handling. Through hands-on exercises and projects, students will gain proficiency in writing Python code and solving real-world problems.` }]
+    const [currentPage, setCurrentPage] = useState(1);
+    const [arr, setArr] = useState([]);
+    const [size] = useState(2);
+
+    const lastInd = currentPage * size;
+    const firstInd = lastInd - size;
+
+    async function getAll() {
+        const response = await axios.get('http://localhost:3001/course/');
+        setArr(response.data);
+    }
+
+    useEffect(() => {
+        getAll();
+    }, [])
+
+    const item = arr.slice(firstInd, lastInd);
+
+    const handleChange = (_event, value) => {
+        setCurrentPage(value);
+    };
 
     return (
         <>
@@ -17,19 +38,28 @@ function StudentPage() {
                 <h1>Courses</h1>
             </div>
 
-            {arr.map((el, ind) =>
-                <div key={ind} className={style.wrapperBody}>
-                    <div className={style.imgOne}></div>
+            {item.map((el, ind) =>
+                <Link to={`/course/${el.id}`} key={ind} >
 
-                    <div>
-                        <h1>{el.h1}</h1>
-                        <div className={style.line}></div>
-                        <p>{el.p}</p>
+                    <div className={style.wrapperBody}>
+                        <div className={style.imgOne}></div>
+
+                        <div>
+                            <h1>{el.course}</h1>
+                            <div className={style.line}></div>
+                            <p>{el.description}</p>
+                        </div>
                     </div>
-                </div>
+
+                </Link>
+
             )}
 
-            <Pagination count={10} variant="outlined" color="primary" />
+            <Pagination count={Math.ceil(arr.length / size)}
+                variant="outlined"
+                color="primary"
+                page={currentPage}
+                onChange={handleChange} />
 
             <Footer />
         </>

@@ -4,6 +4,7 @@ import PreviewPage from './pages/PreviewPage/PreviewPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import StudentPage from './pages/StudentPage/StudentPage';
+import CoursePage from './pages/CoursePage/CoursePage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path='/login' element={<LoginPage />} />
       <Route path='/registration' element={<RegistrationPage />} />
       <Route path='/students' element={<StudentPage />} />
+      <Route path='/course/:id' element={<CoursePage />} />
 
     </Routes >
   );

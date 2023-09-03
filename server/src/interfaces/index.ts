@@ -1,6 +1,7 @@
 interface iCourse {
     id: number;
     cousre: string;
+    description: string;
 }
 
 interface iUser {
