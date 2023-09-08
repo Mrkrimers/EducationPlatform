@@ -6,6 +6,7 @@ async function getUsersDB(): Promise<iCourse[]> {
     const sql = `SELECT * FROM courses`
 
     const data = (await client.query(sql)).rows;
+    await client.release()
     return data;
 }
 
@@ -17,6 +18,7 @@ async function getUserByIdDB(id: number): Promise<iCourse[]> {
 
     const data = (await client.query(sql, [id])).rows
 
+    await client.release()
     return data;
 }
 
@@ -29,6 +31,7 @@ async function createCourseDB(course: string, description: string): Promise<iCou
 
     const data = (await client.query(sql, [course, description])).rows
 
+    await client.release()
     return data;
 }
 
@@ -42,6 +45,8 @@ async function putUserUpdateDB(id: number, course: string, description: string):
 
         const data = (await client.query(sql, [id, course, description])).rows
         await client.query(`COMMIT`);
+
+        await client.release()
         return data;
     } catch (error: any) {
         await client.query(`ROLLBACK`);
@@ -60,6 +65,8 @@ async function deleteUserByIdDB(id: number): Promise<iCourse[]> {
         RETURNING *`
 
         const data = (await client.query(sql, [id])).rows;
+
+        await client.release()
         await client.query(`COMMIT`)
         return data;
     } catch (error: any) {

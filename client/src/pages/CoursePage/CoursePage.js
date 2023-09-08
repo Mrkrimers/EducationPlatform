@@ -25,15 +25,15 @@ function CoursePage() {
         <>
             <Header isAuth={true} />
 
-            <h1>{id}</h1>
-
             <div className={style.wrapper}>
 
                 <div className={style.wrapperCourse}>
                     <div className={style.flex}>
                         <div className={style.img}></div>
-                        <h1>{res.course}</h1>
-                        <p>{res.description}</p>
+                        <form>
+                            <h1>{res.course}</h1>
+                            <p>{res.description}</p>
+                        </form>
                     </div>
 
                     <Button className={style.btnLogin}
