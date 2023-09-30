@@ -1,6 +1,7 @@
 import express, { Request, Responce } from 'express';
 import { createUser, authorizationUser, deleteById } from '../service/api.service';
 import buildResponse from '../helper/buildResponse'
+import createToken from '../helper/jwt';
 
 const route = express.Router();
 
@@ -19,6 +20,12 @@ route.post(`/auth`, async (req: Request, res: Responce): Promise<void> => {
     try {
         const { email, pwd } = req.body;
         const data = await authorizationUser(email, pwd)
+
+        const token = createToken(data);
+        res.cookie('access_token', token, {
+            httpOnly: false,
+            secure: true
+        })
 
         buildResponse(res, 200, data);
     } catch (err: any) {
