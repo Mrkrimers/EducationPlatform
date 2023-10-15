@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import style from './style.module.css'
 
 function PreviwInfo() {
@@ -10,7 +11,10 @@ function PreviwInfo() {
                     <h1>Learning and teaching online, made easy.</h1>
                     <p className={style.info}>Any subject, in any language, on any device, for all ages!</p>
 
-                    <div className={style.btnInfo}>About platform</div>
+                    <Link to={'/*'}>
+                        <div className={style.btnInfo}>About platform</div>
+                    </Link>
+
                     <div className={style.statistics}>
 
                         <div className={style.lightWrapper}>
@@ -48,7 +52,10 @@ function PreviwInfo() {
                 <div className={style.info}>
                     <h1>Increase your knowledge</h1>
                     <p>Traditional and new effective approaches to learning languages</p>
-                    <div className={style.btnText}>Textbook →</div>
+
+                    <Link to={'/*'}>
+                        <div className={style.btnText}>Textbook →</div>
+                    </Link>
                 </div>
 
                 <div className={style.imgGirl2}></div>
@@ -63,7 +70,9 @@ function PreviwInfo() {
                         <h1>Watch your progress every day</h1>
                         <p>Save statistics on your achievements and mistakes</p>
 
-                        <div className={style.btnStatistics}>Statistics → </div>
+                        <Link to={'/*'}>
+                            <div className={style.btnStatistics}>Statistics → </div>
+                        </Link>
                     </div>
 
                 </div>

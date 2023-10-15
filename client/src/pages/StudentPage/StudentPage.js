@@ -44,7 +44,7 @@ function StudentPage() {
                     <div className={style.wrapperBody}>
                         <div className={style.imgOne}></div>
 
-                        <div>
+                        <div className={style.course}>
                             <h1>{el.course}</h1>
                             <div className={style.line}></div>
                             <p>{el.description}</p>
@@ -55,7 +55,7 @@ function StudentPage() {
 
             )}
 
-            <Pagination count={Math.ceil(arr.length / size)}
+            <Pagination className={style.paginstion} count={Math.ceil(arr.length / size)}
                 variant="outlined"
                 color="primary"
                 page={currentPage}

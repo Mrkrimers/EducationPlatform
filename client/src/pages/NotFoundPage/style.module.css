@@ -1,0 +1,38 @@
+.content {
+    margin: auto;
+    width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper h1 {
+    color: var(--primaty-black, #000);
+
+    font: 400 56px Dela Gothic One;
+    line-height: 120%;
+}
+
+.wrapper p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 700 16px Space Grotesk;
+    line-height: normal;
+}
+
+.wrapper .btn {
+    padding: 14px 22px;
+    border-radius: 100px;
+    background: var(--primaty-cyan-dark, #2B788B);
+    color: #FFF;
+    font: 700 16px Montserrat;
+    line-height: 100%;
+}
+
+
+.content .img {
+    background-image: url('./assets/ghost-img\ 1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 394px;
+    height: 413px;
+}

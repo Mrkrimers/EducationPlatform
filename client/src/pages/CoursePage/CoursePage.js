@@ -9,7 +9,8 @@ import axios from "axios";
 
 function CoursePage() {
     const { id } = useParams();
-    const [res, setRes] = useState({})
+    const [res, setRes] = useState({});
+    const [resLessons, setLessons] = useState([]);
 
     async function getAllCourses() {
         const response = await axios.get(`http://localhost:3001/course/${id}`)
@@ -17,8 +18,15 @@ function CoursePage() {
         setRes(response.data[0])
     }
 
+    async function getAllLessons() {
+        const response = await axios.get(`http://localhost:3001/lesson/${id}`);
+        console.log(response.data);
+        setLessons(response.data)
+    }
+
     useEffect(() => {
         getAllCourses();
+        getAllLessons()
     }, [])
 
     return (
@@ -42,12 +50,7 @@ function CoursePage() {
 
                 <div className={style.wrapperLesson}>
                     <h1>15 lessons</h1>
-                    <ul>
-                        <li>1. test</li>
-                        <li>1. test</li>
-                        <li>1. test</li>
-                        <li>1. test</li>
-                    </ul>
+                    {resLessons.map((el) => <p key={el.id}>{el.title}</p>)}
                 </div>
 
             </div>

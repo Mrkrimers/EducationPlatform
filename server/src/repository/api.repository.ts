@@ -13,6 +13,8 @@ async function createUserDB<T>(name: T, surname: T, email: T, pwd: T): Promise<i
 
         await client.query(`COMMIT`);
 
+        await client.release()
+
         return data;
     } catch (error: any) {
         await client.query(`ROLLBACK`)
@@ -26,13 +28,14 @@ async function getEmailDB(email: string): Promise<iUser[]> {
 
     const sql = `SELECT * FROM users WHERE email = $1`
     const data = (await client.query(sql, [email])).rows
+    await client.release()
 
     return data;
 }
 
 async function deleteByIdDB(id: number) {
     const client = await pool.connect();
-    
+
     try {
         await client.query('BEGIN')
 
@@ -40,6 +43,9 @@ async function deleteByIdDB(id: number) {
         const data = (await client.query(sql, [id])).rows
 
         await client.query('COMMIT')
+        
+        await client.release()
+
         return data;
     } catch (err: any) {
         await client.query('ROLLBACK')

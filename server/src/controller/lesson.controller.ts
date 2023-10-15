@@ -14,10 +14,10 @@ route.get(`/`, async (req: Request, res: Responce): Promise<void> => {
     }
 })
 
-route.get(`/:id`, async (req: Request, res: Responce): Promise<void> => {
+route.get(`/:course_id`, async (req: Request, res: Responce): Promise<void> => {
     try {
-        const { id } = req.params;
-        const data = await getLessonById(id)
+        const { course_id } = req.params;
+        const data = await getLessonById(course_id)
 
         buildResponse(res, 200, data);
     } catch (err: any) {

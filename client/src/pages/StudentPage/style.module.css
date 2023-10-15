@@ -1,6 +1,7 @@
 .wrapperLogo {
     display: flex;
     padding: 20px;
+    margin: 50px 100px;
     justify-content: center;
     align-items: center;
     border-radius: 14px;
@@ -24,15 +25,31 @@
 
 .wrapperBody {
     display: flex;
-    background: #FFF;
+
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 50px;
+    border-radius: 16px;
 }
 
 .wrapperBody .imgOne {
     background-image: url(./assets/image_One.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 390px;
+    width: 406px;
     height: 260px;
+    border-radius: 16px 0 0 16px;
+}
+
+.wrapperBody .course {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFF;
+    height: 260px;
+    border-radius: 0 16px 16px 0;
 }
 
 .wrapperBody h1 {
@@ -43,8 +60,9 @@
 }
 
 .wrapperBody .line {
-    height: 2px;
+    height: 4px;
     background-color: #757575;
+    margin: 40px 0;
 }
 
 .wrapperBody p {
@@ -52,4 +70,10 @@
     font: 500 16px Montserrat;
     line-height: 150%;
     letter-spacing: -0.64px;
+}
+
+.paginstion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Input from '../../components/Input/Input'
@@ -6,6 +6,7 @@ import style from './style.module.css'
 import { Button } from '@mui/material/';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import MyContext from '../../context/MyContext';
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -14,10 +15,16 @@ function LoginPage() {
         pwd: ''
     })
 
+    const { logIn } = useContext(MyContext);
+
     async function getLog() {
-        const response = await axios.post('http://localhost:3001/api/auth', inp)
+        const response = await axios.post('http://localhost:3001/api/auth', inp, {
+            withCredentials: true
+        })
         console.log(response);
-        navigate('/students')
+
+        logIn()
+        navigate('/students');
     }
 
     const array = [{ text: "email", type: "text" },

@@ -1,7 +1,18 @@
+
+import { useContext } from 'react'
 import style from './style.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import MyContext from '../../context/MyContext'
 
 function Header({ isAuth }) {
+    const navigate = useNavigate()
+    const { logOut } = useContext(MyContext)
+
+    const singOut = () => {
+        logOut();
+        navigate('/login')
+    }
+
     return (
 
         <div className={style.wrapper}>
@@ -19,8 +30,8 @@ function Header({ isAuth }) {
                         <Link to={'/registration'}>Sign Up</Link>
                     </div>
                 </>) : (
-                    <div className={style.signUp}>
-                        <Link to={'/'}>Sign Out</Link>
+                    <div className={style.signUp} onClick={singOut}>
+                        Sign Out
                     </div>
                 )}
 
