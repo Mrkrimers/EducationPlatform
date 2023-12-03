@@ -14,19 +14,17 @@ function CoursePage() {
 
     async function getAllCourses() {
         const response = await axios.get(`http://localhost:3001/course/${id}`)
-        console.log(response);
         setRes(response.data[0])
     }
 
     async function getAllLessons() {
         const response = await axios.get(`http://localhost:3001/lesson/${id}`);
-        console.log(response.data);
         setLessons(response.data)
     }
 
     useEffect(() => {
         getAllCourses();
-        getAllLessons()
+        getAllLessons();
     }, [])
 
     return (
@@ -38,6 +36,7 @@ function CoursePage() {
                 <div className={style.wrapperCourse}>
                     <div className={style.flex}>
                         <div className={style.img}></div>
+
                         <form>
                             <h1>{res.course}</h1>
                             <p>{res.description}</p>
@@ -49,8 +48,10 @@ function CoursePage() {
                 </div>
 
                 <div className={style.wrapperLesson}>
-                    <h1>15 lessons</h1>
-                    {resLessons.map((el) => <p key={el.id}>{el.title}</p>)}
+                    <h1>Lessons</h1>
+                    <ul>
+                        {resLessons.map((el) => <li key={el.id}>{el.title}</li>)}
+                    </ul>
                 </div>
 
             </div>

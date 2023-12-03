@@ -42,7 +42,7 @@ function StudentPage() {
                 <Link to={`/course/${el.id}`} key={ind} >
 
                     <div className={style.wrapperBody}>
-                        <div className={style.imgOne}></div>
+                        <div className={ind % 2 === 0 ? style.imgOne : style.imgTwo}></div>
 
                         <div className={style.course}>
                             <h1>{el.course}</h1>
