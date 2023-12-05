@@ -16,19 +16,18 @@ function Header({ isAuth }) {
     return (
 
         <div className={style.wrapper}>
-            <h1>
-                <Link to={'/'}>Hschool</Link>
-            </h1>
+            <Link to={'/'}> <h1>Hschool</h1></Link>
 
             <div className={style.btns}>
                 {!isAuth ? (<>
-                    <div className={style.login}>
-                        <Link to={'/login'}>Login →</Link>
-                    </div>
+                    <Link to={'/login'}>
+                        <div className={style.login}> Login → </div>
 
-                    <div className={style.signUp}>
-                        <Link to={'/registration'}>Sign Up</Link>
-                    </div>
+                    </Link>
+
+                    <Link to={'/registration'}>
+                        <div className={style.signUp}> Sign Up </div>
+                    </Link>
                 </>) : (
                     <div className={style.signUp} onClick={singOut}>
                         Sign Out

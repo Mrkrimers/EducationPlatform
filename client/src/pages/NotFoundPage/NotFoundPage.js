@@ -8,7 +8,7 @@ function NotFoundPage() {
         <>
             <Header />
 
-            <div className={style.content}>
+            <main className={style.content}>
 
                 <div className={style.wrapper}>
 
@@ -17,13 +17,13 @@ function NotFoundPage() {
                     <p>We can’t seem to find the page you are looking for.</p>
 
                     <Link to={'/'}>
-                        <div className={style.btn}></div>
+                        <div className={style.btn}>Go home</div>
                     </Link>
                 </div>
 
-                <div className={style.img}>Sing Up</div>
+                <div className={style.img}></div>
 
-            </div>
+            </main>
 
             <Footer />
         </>

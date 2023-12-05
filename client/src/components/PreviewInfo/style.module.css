@@ -1,16 +1,19 @@
 .preview {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: 3% auto 0;
-    width: 1220px;
+
+    padding-top: 50px;
+
+    border-top: 1px solid #E0E0E0;
 }
 
 .preview .previewInfo {
-    width: 520px;
+    width: 52%;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    padding-left: 125px;
 }
 
 .preview .previewInfo .discription {
@@ -49,12 +52,10 @@
 
 .preview .previewGuy {
     background-image: url(./assests/previewGuy.png);
-    width: 933px;
+    width: 60%;
     height: 600px;
     background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    left: 15%;
+    background-size: cover;
 }
 
 .preview .lightWrapper {
